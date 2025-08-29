@@ -10,15 +10,19 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      #  Clonar el repositorio
       - uses: actions/checkout@v3
 
+      #  Instalar Node.js
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
           node-version: '18'
 
+      #  Instalar dependencias locales
       - name: Install dependencies
-        run: npm install   
+        run: npm ci
 
+      #  Ejecutar los tests usando npx
       - name: Run tests
-        run: npx jest       
+        run: npx jest
